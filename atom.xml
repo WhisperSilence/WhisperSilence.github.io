@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://whispersilence.com/"/>
-  <updated>2019-03-16T10:04:17.980Z</updated>
+  <updated>2019-03-24T07:15:36.363Z</updated>
   <id>http://whispersilence.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初学python（03篇--vi编辑器）</title>
+    <link href="http://whispersilence.com/uncategorized/%E5%88%9D%E5%AD%A6python%EF%BC%8803%E7%AF%87-vi%E7%BC%96%E8%BE%91%E5%99%A8%EF%BC%89/"/>
+    <id>http://whispersilence.com/uncategorized/初学python（03篇-vi编辑器）/</id>
+    <published>2019-03-24T07:14:02.000Z</published>
+    <updated>2019-03-24T07:15:36.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>﻿所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。</p><h4 id="VI命令的工作模式"><a href="#VI命令的工作模式" class="headerlink" title="VI命令的工作模式"></a>VI命令的工作模式</h4><p>更详细的文档请参考：<a href="http://c.biancheng.net/view/519.html" target="_blank" rel="noopener">http://c.biancheng.net/view/519.html</a>  或 <a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-vim.html</a><br>简化图：<img src="http://pole6eku1.bkt.clouddn.com/viKeyboard.jpg" alt="简化图"></p><p>vi编辑器有三种工作模式：命令模式、插入模式、末行模式。</p><blockquote><ul><li>命令模式：<br>此时从键盘上输入的任何字符都被当做编辑命令来解释，同时该模式是进入 vi 编辑器后的默认模式。<strong>任何时候，不管用户处于何种模式，按下Esc键即可进入命令模式</strong>。</li><li>插入模式（亦称编辑模式）：<br>在命令模式下输入插入命令i、附加命令a、打开命令o、修改命令c、取代命令r或替换命令s都可以进入文本输入模式。在该模式下，用户输入的任何字符都被 vi 当做文件内容保存起来，并将其显示在屏幕上。</li><li>末行模式（亦称ex 转义模式）：<br>在命令模式下，用户按 : 键即可进入末行模式下，此时 vi 会在显示窗口的最后一行（通常也是屏幕的最后一行）显示一个:作为末行模式的说明符，等待用户输入命令。多数文件管理命令都是在此模式下执行的（如把编辑缓冲区的内容写到文件中等）。<br>vi 编辑器的 3 种模式的转换如下图所示：<br><img src="http://pole6eku1.bkt.clouddn.com/vicom.png" alt="3种模式转换"></li></ul></blockquote><h4 id="VI命令的基本操作"><a href="#VI命令的基本操作" class="headerlink" title="VI命令的基本操作"></a>VI命令的基本操作</h4><p>一下文本内容的“#”为注释内容，说明功能</p><h5 id="进入文件"><a href="#进入文件" class="headerlink" title="进入文件"></a>进入文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi test.py  # 打开名为test.py的文件，若不存在则创建并打开该文件</span><br></pre></td></tr></table></figure><blockquote><p>如果只输入 vi，而不带文件名，也可以进入 vi。这时编辑的文件是没有文件名的，所以在退出 vi 时，需要在退出命令后输入文件名，这样才能保证该文件被保存在磁盘中。</p></blockquote><h5 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h5><h6 id="插入文本（i和I）"><a href="#插入文本（i和I）" class="headerlink" title="插入文本（i和I）"></a>插入文本（i和I）</h6><blockquote><p>i:将文本插入到光标所在位置前<br>I:I 命令将文本插入当前行的行首</p></blockquote><h6 id="追加文本（a和A）"><a href="#追加文本（a和A）" class="headerlink" title="追加文本（a和A）"></a>追加文本（a和A）</h6><blockquote><p>a:将新文本追加到光标当前所在位置之后<br>A:命令将新文本追加到所在行的行尾</p></blockquote><h6 id="空行插入命令-o和O"><a href="#空行插入命令-o和O" class="headerlink" title="空行插入命令(o和O)"></a>空行插入命令(o和O)</h6><blockquote><p>o：命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首<br>O：命令在光标所在行的上面插入一个空行，并将光标置于该行的行首。</p></blockquote><h5 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h5><h6 id="字符移动"><a href="#字符移动" class="headerlink" title="字符移动"></a>字符移动</h6><table><thead><tr><th>移动命令</th><th>意义</th></tr></thead><tbody><tr><td>h</td><td>左移一个光标</td></tr><tr><td>j</td><td>下移一个光标</td></tr><tr><td>k</td><td>上移一个光标</td></tr><tr><td>l</td><td>右移一个光标</td></tr></tbody></table><h6 id="按字移动"><a href="#按字移动" class="headerlink" title="按字移动"></a>按字移动</h6><blockquote><ul><li>w 和 W 命令将光标右移至下一个字的字首。<br>区别：<br>-w  所指的字是指英文单词、标点符号和非字母字符；<br>-W  所指的字是指两个空格之间的任何内容；</li></ul></blockquote><blockquote><ul><li>如果光标起始位置处于字内，则 e 和 E 命令将把光标移到本字字尾；<br>如果光标起始位置处于字尾，则 e 和 E 命令将把光标移动到下一个字的字尾。<br>区别：<br>-e  所指的字是指英文单词、标点符号和非字母字符；<br>-E  所指的字是指两个空格之间的任何内容；</li></ul></blockquote><blockquote><ul><li>如果光标处于所在字内，则 b 和 B 命令将把光标移至本字字首；如果光标处于所在字字首，则 b 和 B 命令将把光标移到上一个字的字首。<br>区别：<br>-b 命令所指的字是指英文单词、标点符号和非字母字符；<br>-B 命令所指的字是指两个空格之间的任何内容。</li></ul></blockquote><h6 id="按行移动"><a href="#按行移动" class="headerlink" title="按行移动"></a>按行移动</h6><blockquote><ul><li>H：将光标移至当前屏幕的第 1 行，而不是整个文件的第 1 行。若在 H 命令之前加 上数字 n，则将光标移至第 n 行的行首</li><li>M：将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满，则移动到整个屏幕的中间行；否则，移动到显示文本的那些行的中间行。</li><li>L：将光标移至屏幕显示文件的最底行的行首。即如果文件内容需要超过一个屏幕显示时，该命令将光标移至屏幕上最底行的行首；否则该命令将光标移至文件最后一行的行首。</li><li>G：在全文的范围内移动光标，此时的光标移动范围不再受屏幕的限制。例如，在上例中，在命令模式下输入命令 5G 之后光标将移到第 5 行的行首。</li></ul></blockquote><h6 id="按段落移动光标"><a href="#按段落移动光标" class="headerlink" title="按段落移动光标"></a>按段落移动光标</h6><p>一个段落被定义为是以一个空白行开始和结束的片段。按段落移动光标的命令有以下两种:</p><blockquote><ul><li>{：该命令将光标向前移至上一个段落的开头。</li><li>}：该命令将光标向后移至下一个段落的开头。</li></ul></blockquote><h5 id="文本移动"><a href="#文本移动" class="headerlink" title="文本移动"></a>文本移动</h5><h6 id="文本行移动"><a href="#文本行移动" class="headerlink" title="文本行移动"></a>文本行移动</h6><blockquote><ul><li>>:将指定的正文行向右移动。</li><li>>n：n表示光标所在位置后面的文本行数。也可以不写 n，此时默认为 1。<br>&lt;:命令将指定的正文行向左移动。其使用方式与命令相同，但是方向相反。</li><li>>&gt;:该命令将光标所在行右移 8 个空格。如果在&gt;&gt;命令之前给出一个数字 n，例如 4，则表示光标当前行及其下面的 3 行（共4行）都右移 8 个空格。</li><li>&lt;&lt;:命令将光标所在行左移 8 个空格。其使用与&gt;&gt;命令相同，但是移动方向相反。</li></ul></blockquote><h6 id="文本跨行移动-m命令"><a href="#文本跨行移动-m命令" class="headerlink" title="文本跨行移动(m命令)"></a>文本跨行移动(m命令)</h6><blockquote><ul><li>imj:表示把第 i 行移至第 j 行的下方。下面实例演示了 m 命令的使用。例：6m2,就是将第6行的内容移动到第2行的下方</li></ul></blockquote><h5 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h5><h6 id="字符替换"><a href="#字符替换" class="headerlink" title="字符替换"></a>字符替换</h6><blockquote><ul><li>r: 将当前光标所指的字符替换为提供的字符。可以在该命令之前加上数字 n，表示将从当前字符开始的 n 个字符替换为提供的字符。下面实例演示了 r 命令的使用。</li><li>R:该命令会让 vi 进入 replace 模式。在此模式下，每个输入的字符都会替换当前光标下的字符，直到输入 \<esc> 结束该模式。</esc></li></ul></blockquote><h6 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h6><blockquote><ul><li>[range]s/s1/s2/ [option]</li></ul><ul><li style="list-style: none"><input type="checkbox" checked> [range] 表示检索范围，省略时表示当前行；<br>1,10表示从第 1 行到 10 行；<br>%表示整个文件，同1, $；<br>. ,$从当前行到文件尾。</li><li style="list-style: none"><input type="checkbox" checked> s 为替换命令。</li><li style="list-style: none"><input type="checkbox" checked> s1 要被替换的串，s2 为替换的串。</li><li style="list-style: none"><input type="checkbox" checked> option 表示选项：<br>/g表示在全局文件中进行替换;<br>/c表示在每次替换之前需要用户进行确认;<br>省略时仅对每行第一个匹配串进行替换。<br>例如：%s/\&lt;abc/cde    表示将以 abc 开头的单词替换为以 cde 开头。</li></ul></blockquote><h5 id="辅助操作"><a href="#辅助操作" class="headerlink" title="辅助操作"></a>辅助操作</h5><h6 id="字符串检索"><a href="#字符串检索" class="headerlink" title="字符串检索"></a>字符串检索</h6><blockquote><ul><li>/String:从光标处开始向后寻找字符串 string。</li><li>?String:从光标处开始向前寻找字符串 string。</li></ul></blockquote><h6 id="文本复制和粘贴"><a href="#文本复制和粘贴" class="headerlink" title="文本复制和粘贴"></a>文本复制和粘贴</h6><blockquote><ul><li>v 命令：在命令模式下进行<strong>文本选择</strong>。在需要选择的文本的起始处按下 v 键进入块选择模式，然后移动光标到块尾处。这之间的部分被高亮显示，表示被选中.</li><li>V 命令：在命令模式下按行进行文本选择。在需要选择的文本的第一行按下 V 键，然后移动光标到块的最后一行。这之间的所有行被高亮显示，表示被选中。</li></ul></blockquote><blockquote><ul><li>yy ：<strong>复制</strong>光标所在的整行。在 yy 前可加一个数字 n，表示复制当前行及其后 n-1 行的内容。</li><li>Y 或 y$ ：两命令功能一样，都是复制从光标所在处开始到行尾的内容。</li><li>yw ：复制一个单词。若光标处在某个词的中间，则从光标所在位置开始复制至词尾。同 yy 命令一样，可在 yw 之前加一个数字 n，表示复制 n 个指定的单词。</li><li>y) ：复制到下一句幵始的所有字符。</li><li>y} ：复制到下一段开始的所有字符。</li><li>y\<cr> （\<cr> 表示回车）：复制包括当前行在内的两行内容。</cr></cr></li></ul></blockquote><blockquote><ul><li>p 命令：<strong>粘贴</strong>命令，粘贴当前缓冲区中的内容</li></ul></blockquote><h6 id="文本删除"><a href="#文本删除" class="headerlink" title="文本删除"></a>文本删除</h6><blockquote><p>删除单个字符</p><ul><li>x 命令：删除光标处的字符。若在 x 之前加上一个数字 n，则删除从光标所在位置开始向右的 n 个字符</li><li>X 命令：删除光标前面的字符。若在 X 之前加上一个数字 n，则删除从光标前面那个字符开始向左的 n 个字符。</li></ul></blockquote><blockquote><p>删除多个字符</p><ul><li>dd 命令：该命令删除光标所在的整行。在 dd 前可加上一个数字 n，表示删除当前行及其后 n-1 行的内容。</li><li>D 命令或 d$ 命令：两个命令功能一样，都是删除从光标所在处开始到行尾的内容。</li><li>d0 命令：该命令删除从光标前一个字符开始到行首的内容。</li><li>dw 命令：该命令删除一个单词。若光标处在某个词的中间，则从光标所在位置开始删至词尾。同 dd 命令一样，可在 dw 之前加一个数字n，表示删除 n 个指定的单词。</li><li>d( 命令：该命令删除到上一句开始的所有字符。</li><li>d) 命令：该命令删除到下一句开始的所有字符。</li><li>d} 命令：该命令删除到上一段开始的所有字符。</li><li>d{ 命令：该命令删除到下一段开始的所有字符。</li><li>d\<cr> 命令：该命令（\<cr>表示回车）删除包括当前行在内的两行字符。</cr></cr></li></ul></blockquote><h6 id="操作撤销"><a href="#操作撤销" class="headerlink" title="操作撤销"></a>操作撤销</h6><blockquote><ul><li>u ：该命令撤销上一次所做的操作。多次使用 u 命令会一步一步依次撤销之前做过的操作（在一次切换到文本输入模式中输入的所有文本算一次操作）。</li><li>U ：该命令会一次性撤销自上次移动到当前行以来做过的所有操作，再使用一次 U 命令则撤销之前的 U 命令所做的操作，恢复被撤销的内容。</li></ul></blockquote><h6 id="退出文件"><a href="#退出文件" class="headerlink" title="退出文件"></a>退出文件</h6><blockquote><ul><li>:wq vi将先保存文件，然后退出 vi 返回到 shell。如果当前文件尚未取名，则需要现指定一个文件名。</li><li>:x 在末行模式下，若当前编辑文件曾被修改过，则 vi 会保存该文件。否则 vi 直接退出，不保存该文件。</li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;﻿所有的Linux发行版系统上都会默认内置vi编辑器，而不一定带有其他文本编辑器，非常通用；其次，很多软件的编辑接口都会默认调用vi；再者就是对很多热爱编程的大佬来说，可大大提高编程效率，很多黑客也是使用这个编辑器来减少自己摸鼠标时间的。&lt;/p&gt;
+&lt;h4 id=&quot;VI命令的
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>testMarkdown</title>
@@ -27,31 +49,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>大话数据库</title>
-    <link href="http://whispersilence.com/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://whispersilence.com/数据库/大话数据库/</id>
-    <published>2019-03-15T14:15:01.000Z</published>
-    <updated>2019-03-18T09:01:57.280Z</updated>
-    
-    <content type="html"><![CDATA[<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>本文侧重于<strong>大数据下的NoSQL数据库</strong>特点，在介绍NoSQL数据库之前，需要简单介绍下数据库种类的发展史，有因有果的逻辑才能被大家所认可嘛。</p><h4 id="数据库早期"><a href="#数据库早期" class="headerlink" title="数据库早期"></a>数据库早期</h4><p>计算机刚刚兴起的年代，是没有专门存储数据的库的，基本上所有的数据信息都是以文件的形式存取，也就是无库，所以当时计算机也是比较冷的行业，毕竟刚刚起步嘛，没有系统的标准来规范这些业务标准。后来渐渐有了层次状数据库、网状数据库，但这些数据库还是不能被大规模的商业化，只有极个别有实力的公司可能会采用这种数据库方式存储企业内部的相关信息，而且维护起来相当麻烦，归根结底还是标准的问题，比如对数据库读写的标准等等，这些标准就不一一细说，造成了很大的企业成本开销。基于标准这一缘故，直到上世纪80年代，关系型数据库统一了规范，很快发展成了主流的数据库存储模式。数据库的具体发展可参考此网址：<a href="http://www.cbdio.com/BigData/2016-02/24/content_4651751.htm" target="_blank" rel="noopener">http://www.cbdio.com/BigData/2016-02/24/content_4651751.htm</a></p><h4 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h4><p>关系型数据库具有的优势直到现在也是无可替代的，例如关系型数据库擅长小量数据的读写存储、擅长复杂的SQL操作、支持事务机制等等，所以到现在出现了很多的关系型数据库，比如MySQL、SQL Server、Oracle、DB2、SyBase、Informix、PostgreSQL以及Access数据等等，各有优缺点。</p><p>但是到了大数据时代，人们更多的数据和物联网加入的数据已经超出了关系数据库的承载范围。刚开始解决大数据时代的高并发的访问请求一般都是采用的集群同步数据的方式处理，什么意思呢？就是将数据库分成了很多的小库，每个数据库的数据内容是不变的，都是保存了源数据库的数据副本，通过同步或者异步方式保证数据的一致性，每个库设定特定的读写方式，比如数据库a负责查询，数据库b负责增加等等以此类推，将业务在物理层面上进行了分离，但是这种方式依旧存在一定的负载压力的问题，企业公司的数据在不断的扩增中，后面就采用分库分表的方式解决，对读写负载进行分离，但是这种实现依旧存在不足，有如下几点：</p><blockquote><ul><li>底层的集群创建相当的复杂；</li><li>数据库一般采用的异步方式复制数据，当主库压力较大时会带来较大的延迟，使得主备切换可能会丢失一部分更新的数据，这种情况就需要人工介入恢复，代价高昂；</li><li>扩容问题，当需要增加集群时，一般会对整个集群重新分区，对数据重新划分，比较复杂，容易出错；</li><li>数据动态迁移的问题。意思就是在配置集群之前，很多企业不能预测后面的集群分布情况，可能会导致有的库负载重有的反而轻，在运营的过程中可能会对集群进行修改，这个过程也是人工介入，对每个节点进行重新分配。</li></ul></blockquote><h4 id="NoSQL的出现"><a href="#NoSQL的出现" class="headerlink" title="NoSQL的出现"></a>NoSQL的出现</h4><p>过度阶段的人们根据经验总结发展出了NoSQL(Not Only SQL)数据库。NoSQL数据库是大数据下数据库的统一简称，和关系型数据库一样，只是一个象征性意义的词汇，本身并不是数据库，英文解释为“Not Only SQL”（不仅仅是SQL），意思就是在SQL上衍生出来的，相当于SQL的补充，但为了做区别故称为NoSQL数据库。NoSQL数据可以大致分为4种类型：列族数据库（BigTable、HBase、Cassandra、Amazon SimpleDB、HadoopDB等等）、键值数据库（Redis、SimpleDB、Scalaris、Memcached等等）、文档数据库（MongoDB、CouchDB、Perservere、Terrastore、RavenDB等等）、图数据库（Neo4J、InfoGrid、OrientDB、GraphDB）。<br>但现在很多大企业在运营时，并不是仅仅只使用一种数据库，而是多种数据库一起混合协调，将整个系统达到最优，也因此产生了NewSQL数据库，其实就是混合型数据库架构的统一叫法，它是为了将关键业务和非关键业务进行一统管理。关系型数据库、NoSQL和NewSQL数据库的大致关系如下图（注：OldSQL是指传统的关系型数据库）：<br><img src="https://i.loli.net/2019/03/18/5c8f5e4520d2f.png" alt="三者关系"></p><p>好了说了这么多，一张图便可以将目前市场主流的数据库类型的关系表达清楚，如图：<br><img src="https://i.loli.net/2019/03/18/5c8f5950ef6d5.png" alt="主流数据库关系"></p><p>总结：关系型数据库和NoSQL数据库各有优缺点，彼此之间无法取代。在应用场景上，关系型数据库适用于电信、银行等关键性业务系统，保证强事务一致性，而NoSQL数据库适用于互联网企业、传统企业等的非关键性业务（例如数据分析）。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h6 id=&quot;注意：&quot;&gt;&lt;a href=&quot;#注意：&quot; class=&quot;headerlink&quot; title=&quot;注意：&quot;&gt;&lt;/a&gt;注意：&lt;/h6&gt;&lt;p&gt;本文侧重于&lt;strong&gt;大数据下的NoSQL数据库&lt;/strong&gt;特点，在介绍NoSQL数据库之前，需要简单介绍下数据库种类的发
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://whispersilence.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="http://whispersilence.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
